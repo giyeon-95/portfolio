@@ -11,6 +11,13 @@ document.addEventListener("scroll", () => {
   }
 });
 
+// Handle scolling when tapping on the contact me
+
+const homeContactBtn = document.querySelector(".home__contact");
+homeContactBtn.addEventListener("click", (event) => {
+  scrollIntoView("#contact");
+});
+
 // Handle scolling when tapping on the navbar menu
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
@@ -19,7 +26,11 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return;
   }
-  console.log(event.target.dataset.link);
-  const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({ behavior: "smooth" });
+  scrollIntoView(link);
 });
+
+// function scrollIntoView
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: "smooth" });
+}
